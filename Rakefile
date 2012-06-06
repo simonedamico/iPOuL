@@ -7,5 +7,5 @@ Motion::Project::App.setup do |app|
   app.identifier = 'com.thmdev.ipoul'
   app.version = '3.0'
   app.device_family = [:iphone, :ipad]
-  
+
 end
