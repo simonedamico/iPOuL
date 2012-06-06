@@ -7,5 +7,8 @@ class BitsController < UIViewController
     self
   end
   
-    
+  def loadView
+    self.view = BitsView.alloc.init
+  end
+  
 end
