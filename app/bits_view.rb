@@ -8,7 +8,12 @@ class BitsView < UIView
       @poul_label.text = 'iPOuL'
       @poul_label.textColor = UIColor.yellowColor
       @poul_label.backgroundColor = UIColor.clearColor
-      @poul_label.font = UIFont.fontWithName('HelveticaNeue-BoldItalic', size:72)
+      if Device.iphone?
+        font_size = 72
+      elsif Device.ipad?
+        font_size = 140
+      end
+      @poul_label.font = UIFont.fontWithName('HelveticaNeue-BoldItalic', size:font_size)
       @poul_label.sizeToFit
       self.addSubview(@poul_label)
     end
