@@ -16,7 +16,6 @@ class BitsController < UIViewController
 
   def update_status
     BW::HTTP.get('http://bits.otacon22.it/status.php?format=text') do |response|
-      p response.body.to_str
       if response.body.to_str == "1"
         self.view.update_status_label(:open)
       elsif response.body.to_str == "0"
