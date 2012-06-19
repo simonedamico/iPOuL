@@ -26,7 +26,7 @@ class BitsView < UIView
       self.addSubview(@tux_image)
 
       @status_label = UILabel.alloc.init
-      @status_label.text = "Interrogando BITS"
+      @status_label.text = "Interrogando BITS..."
       @status_label.textColor = UIColor.whiteColor
       @status_label.backgroundColor = UIColor.clearColor
       @status_label.sizeToFit
