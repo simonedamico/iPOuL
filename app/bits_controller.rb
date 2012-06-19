@@ -1,10 +1,9 @@
 class BitsController < UIViewController
   def init
-    if super
+    super.tap do
       self.tabBarItem = UITabBarItem.alloc.initWithTitle('Bits', image:UIImage.imageNamed('radar.png'), tag:0)
     end
 
-    self
   end
   
   def loadView
@@ -16,15 +15,17 @@ class BitsController < UIViewController
   end
 
   def update_status
-    if is_open?
-      self.view.update_status_label(:open)
-    else
-      self.view.update_status_label(:closed)
+    BW::HTTP.get('http://bits.otacon22.it/status.php?format=text') do |response|
+      p response.body.to_str
+      if response.body.to_str == "1"
+        self.view.update_status_label(:open)
+      elsif response.body.to_str == "0"
+        self.view.update_status_label(:closed)
+      else
+        self.view.update_status_label(:sailcazzo)
+      end
     end
-  end
-  
-  def is_open?
-    return false
+    
   end
   
 end

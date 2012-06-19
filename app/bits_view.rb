@@ -26,7 +26,7 @@ class BitsView < UIView
       self.addSubview(@tux_image)
 
       @status_label = UILabel.alloc.init
-      @status_label.text = "La sede e' aperta"
+      @status_label.text = "Interrogando BITS"
       @status_label.textColor = UIColor.whiteColor
       @status_label.backgroundColor = UIColor.clearColor
       @status_label.sizeToFit
@@ -46,10 +46,13 @@ class BitsView < UIView
   def update_status_label(status)
     if status == :open
       @status_label.text = "La sede e' aperta"
+      @status_label.textColor = UIColor.greenColor
     elsif status == :closed
       @status_label.text = "La sede e' chiusa"
+      @status_label.textColor = UIColor.redColor
     else
       @status_label.text = "La sede e' in uno stato indefinito"
+      @status_label.textColor = UIColor.yellowColor
     end
     
     @status_label.sizeToFit
