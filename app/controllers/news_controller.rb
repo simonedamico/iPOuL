@@ -7,12 +7,11 @@ class NewsController < UITableViewController
 
   def viewDidLoad
     super
-    @news ||= []
-    news_feed = BW::RSSParser.new('http://www.poul.org/category/eventi/feed/')
-    news_feed.parse do |item|
-      @news << item
-      self.view.reloadData
-    end
+    update_news
+    self.tableView.addPullToRefreshWithActionHandler(lambda do
+                                                       update_news
+                                                       self.tableView.pullToRefreshView.stopAnimating
+                                                     end)
   end
 
   def tableView(tableView, numberOfRowsInSection:section)
@@ -34,5 +33,15 @@ class NewsController < UITableViewController
   def tableView(tableView, didSelectRowAtIndexPath:path)
     App.open_url(@news[path.row].link)
   end
+
+  def update_news
+    @news ||= []
+    news_feed = BW::RSSParser.new('http://www.poul.org/category/eventi/feed/')
+    news_feed.parse do |item|
+      @news << item
+      self.view.reloadData
+    end
+  end
+  
   
 end
