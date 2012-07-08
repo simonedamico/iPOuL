@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/rubymotion/BubbleWrap
+  revision: 282b92221eee7f7fabf02d038b2eb5d5f32f49de
+  specs:
+    bubble-wrap (1.1.0.dev)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -5,7 +11,6 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     addressable (2.2.8)
-    bubble-wrap (1.0.0)
     cocoapods (0.7.0)
       activesupport (~> 3.2.6)
       colored (~> 1.2)
@@ -44,5 +49,5 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bubble-wrap
+  bubble-wrap!
   motion-cocoapods
