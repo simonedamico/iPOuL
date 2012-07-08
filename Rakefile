@@ -8,6 +8,7 @@ Motion::Project::App.setup do |app|
   app.name = 'iPOuL'
   app.identifier = 'com.thmdev.ipoul'
   app.version = '3.1'
+  app.short_version = '3.1'
   app.device_family = [:iphone, :ipad]
   app.frameworks += ['MapKit']
   app.pods do
