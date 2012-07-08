@@ -12,9 +12,14 @@ class BitsController < UIViewController
 
   def viewDidLoad
     update_status
+    self.view.tux_image.whenPressed do
+      update_status
+    end
+    
   end
 
   def update_status
+    self.view.update_status_label(:updating)
     BW::HTTP.get('http://bits.otacon22.it/status.php?format=text') do |response|
       if response.body.to_str == "1"
         self.view.update_status_label(:open)

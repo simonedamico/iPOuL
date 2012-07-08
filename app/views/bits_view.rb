@@ -1,6 +1,6 @@
 class BitsView < UIView
 
-  attr_accessor :status_label
+  attr_accessor :status_label, :tux_image
   
   def initWithFrame(rect)
     if super(rect)
@@ -50,6 +50,9 @@ class BitsView < UIView
     elsif status == :closed
       @status_label.text = "La sede e' chiusa"
       @status_label.textColor = UIColor.redColor
+    elsif status == :updating
+      @status_label.text = "Interrogando BITS..."
+      @status_label.textColor = UIColor.whiteColor
     else
       @status_label.text = "La sede e' in uno stato indefinito"
       @status_label.textColor = UIColor.yellowColor
