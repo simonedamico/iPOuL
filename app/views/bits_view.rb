@@ -29,6 +29,7 @@ class BitsView < UIView
       @status_label.text = "Interrogando BITS..."
       @status_label.textColor = UIColor.whiteColor
       @status_label.backgroundColor = UIColor.clearColor
+      @status_label.accessibilityLabel = 'status_label'
       @status_label.sizeToFit
       self.addSubview(@status_label)
       
